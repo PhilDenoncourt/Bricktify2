@@ -2,7 +2,19 @@ import { Injectable } from '@angular/core';
 import { BrickOptionsService } from './brick-options.service';
 import { PartSourceService } from './part-source.service';
 
+import { IPlacedBrick } from './brick-options.service';
+import { IBrickSrc } from '../models/ibrick-src';
+
 import * as _ from "lodash";
+
+export interface INeededBrick {
+    designId:number;
+    color:number;
+    description:string;
+    qty:number;
+    srcs:IBrickSrc[];
+    placedBrick:IPlacedBrick;
+}
 
 @Injectable()
 export class BrickCalculationService {
