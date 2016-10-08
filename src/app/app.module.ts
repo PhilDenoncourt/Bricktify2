@@ -5,8 +5,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ColorService } from "./services/color.service";
-import { BrickService } from "./services/brick.service";
-import { PartService } from "./services/part.service";
+import { BricksService } from "./services/bricks.service";
+import { PartsService } from "./services/parts.service";
+import { BrickOptionsService } from "./services/brick-options.service";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { PartService } from "./services/part.service";
     FormsModule,
     HttpModule
   ],
-  providers: [ColorService, BrickService, PartService],
+  providers: [ColorService, BricksService, PartsService, BrickOptionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
