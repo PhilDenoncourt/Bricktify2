@@ -9,6 +9,7 @@ import { BricksService } from "./services/bricks.service";
 import { PartsService } from "./services/parts.service";
 import { BrickOptionsService } from "./services/brick-options.service";
 import { StepService } from "./services/step.service";
+import { AspectRatioService } from "./services/aspect-ratio.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { StepService } from "./services/step.service";
     FormsModule,
     HttpModule
   ],
-  providers: [ColorService, BricksService, PartsService, BrickOptionsService, StepService],
+  providers: [ColorService, BricksService, PartsService, BrickOptionsService, StepService, AspectRatioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
