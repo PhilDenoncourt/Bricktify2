@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ColorService } from "./services/color.service";
+import { BrickService } from "./services/brick.service";
+import { PartService } from "./services/part.service";
 
 @NgModule({
   declarations: [
@@ -14,7 +17,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ColorService, BrickService, PartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
