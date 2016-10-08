@@ -1,9 +1,9 @@
-/// reference path = "../models/ibrick.d.ts"
-/// reference path = "../models/ipart.d.ts"
-/// reference path = "../models/icolor.d.ts"
-
 import { Injectable } from '@angular/core';
 import { ColorService } from './color.service'
+
+import {IPart} from '../models/ipart';
+import {IColor} from '../models/icolor';
+import {IBrick} from '../models/ibrick';
 
 export interface IPlacedBrick {
   color: IColor;

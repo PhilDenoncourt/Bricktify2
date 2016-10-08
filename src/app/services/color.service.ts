@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-
+import {IColor} from '../models/icolor';
 @Injectable()
 export class ColorService {
 
