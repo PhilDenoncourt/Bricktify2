@@ -15,6 +15,7 @@ import { BrickLinkPartProviderService } from './services/brick-link-part-provide
 import { BricktifyService } from './services/bricktify.service';
 import { CanvasContextService } from './services/canvas-context.service';
 import { PartSourceService } from './services/part-source.service';
+import { HelpService } from './services/help.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { PartSourceService } from './services/part-source.service';
     HttpModule
   ],
   providers: [ColorService, BricksService, PartsService, BrickOptionsService, StepService, AspectRatioService, BrickCalculationService, BrickLinkPartProviderService,
-              BricktifyService, CanvasContextService, PartSourceService],
+              BricktifyService, CanvasContextService, PartSourceService, HelpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
