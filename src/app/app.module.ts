@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+
 import { ColorService } from "./services/color.service";
 import { BricksService } from "./services/bricks.service";
 import { PartsService } from "./services/parts.service";
@@ -16,10 +17,14 @@ import { BricktifyService } from './services/bricktify.service';
 import { CanvasContextService } from './services/canvas-context.service';
 import { PartSourceService } from './services/part-source.service';
 import { HelpService } from './services/help.service';
+import { ImageSelectComponent } from './image-select/image-select.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImageSelectComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,
