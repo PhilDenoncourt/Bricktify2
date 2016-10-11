@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject }    from 'rxjs/Subject';
 
 import {CanvasContextService} from './canvas-context.service';
 import {BricksService} from './bricks.service'
@@ -17,6 +18,8 @@ export class BricktifyService {
   private lastMap:IColor[][];
   private lastBrickList:IPlacedBrick[];
   private lastPictureMap:number[][];
+
+  private brickifyFinishedSource = new Subject<any>();
 
   constructor(public canvasContext:CanvasContextService,public bricksService:BricksService,public brickOptions:BrickOptionsService) { }
 
@@ -57,7 +60,11 @@ export class BricktifyService {
         var displayImg = this.canvasContext.getContext(destContextName);
         displayImg.attr('src', legoCanvas.toDataURL('image/png'));
         $('.removeMe').remove();
+
+        this.brickifyFinishedSource.next();
       };
+
+  public brickifyFinished$ = this.brickifyFinishedSource.asObservable();
 
   private static scaleInput(sourceRawContext, width, height) {
         let sourceCanvas = <HTMLCanvasElement>$('<canvas class="removeMe"></canvas>')[0];

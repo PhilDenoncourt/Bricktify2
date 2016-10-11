@@ -5,7 +5,7 @@ import { PartSourceService } from './part-source.service';
 import { IPlacedBrick } from './brick-options.service';
 import { IBrickSrc } from '../models/ibrick-src';
 
-import * as _ from "lodash";
+declare var _: _.LoDashStatic;
 
 export interface INeededBrick {
     designId:number;

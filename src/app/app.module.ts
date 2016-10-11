@@ -21,6 +21,7 @@ import { ImageSelectComponent } from './image-select/image-select.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { BrickifyPanelComponent } from './brickify-panel/brickify-panel.component';
 import { BricktifiedImageComponent } from './bricktified-image/bricktified-image.component';
+import { PartsListComponent } from './parts-list/parts-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BricktifiedImageComponent } from './bricktified-image/bricktified-image
     ImageSelectComponent,
     UploadImageComponent,
     BrickifyPanelComponent,
-    BricktifiedImageComponent
+    BricktifiedImageComponent,
+    PartsListComponent
   ],
   imports: [
     BrowserModule,

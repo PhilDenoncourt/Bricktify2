@@ -1,0 +1,32 @@
+<div heading="Parts List">
+  <div class="panel panel-primary">
+    <div class="panel-heading bg-primary"><i class="fa fa-print pull-right" (click)="print()"></i> <h4>Parts List</h4></div>
+    <div class="panel-body">
+      <table id="partsTable" class="table table-condensed">
+        <thead>
+        <tr>
+          <th>Qty</th>
+          <th>Part Num</th>
+          <th>Description</th>
+          <th>Obtain</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let part of neededParts">
+          <td>{{part.qty}}</td>
+          <td>{{part.designId}}</td>
+          <td>
+            {{part.description}}
+          </td>
+          <td>
+            <div *ngFor="let src of part.srcs">
+              <!--suppress HtmlUnknownTarget -->
+              <a href="{{src.url}}" target="_new">{{src.desc}}</a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
