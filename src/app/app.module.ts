@@ -19,12 +19,16 @@ import { PartSourceService } from './services/part-source.service';
 import { HelpService } from './services/help.service';
 import { ImageSelectComponent } from './image-select/image-select.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import { BrickifyPanelComponent } from './brickify-panel/brickify-panel.component';
+import { BricktifiedImageComponent } from './bricktified-image/bricktified-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageSelectComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    BrickifyPanelComponent,
+    BricktifiedImageComponent
   ],
   imports: [
     BrowserModule,

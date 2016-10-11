@@ -23,7 +23,7 @@ export class UploadImageComponent implements OnInit {
     var width;
     var height;
 
-    this.canvasContext.setContext(this.element.nativeElement.context, this.ctx);
+    this.canvasContext.setContext(this.context, this.ctx);
 
     uploadCtrl.bind('change', (e:any) => {
       var reader = new FileReader();
@@ -70,6 +70,8 @@ export class UploadImageComponent implements OnInit {
   }
 
   @Input() public imageDataUrl:string;
+  @Input() public context:string;
+
   private domCanvas:HTMLCanvasElement;
   private ctx:CanvasRenderingContext2D;
 

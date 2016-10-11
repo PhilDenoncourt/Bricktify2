@@ -8,8 +8,8 @@ import {IColor} from '../models/icolor';
 import {IPart} from '../models/ipart';
 import { IPlacedBrick } from './brick-options.service';
 
-import * as _ from "lodash";
-import * as $ from "jquery";
+declare var _: _.LoDashStatic;
+declare var $:JQueryStatic;
 
 @Injectable()
 export class BricktifyService {

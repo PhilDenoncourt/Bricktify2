@@ -6,7 +6,7 @@ import {IPart} from '../models/ipart';
 import {IColor} from '../models/icolor';
 import {IBrick} from '../models/ibrick';
 
-import * as _ from "lodash";
+declare var _: _.LoDashStatic;
 
 @Injectable()
 export class BricksService {

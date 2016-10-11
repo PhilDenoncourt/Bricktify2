@@ -1,0 +1,74 @@
+<div heading="Bricktify" class=".hidden-print">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>Bricktify</h4>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-6">
+        <div class="panel-info panel">
+          <div class="panel-body">
+            <div class="form-group">
+              <div class="panel panel-default">
+                <div class="panel-heading"><h4 class="panel-heading linkLabel" id="frameOptions"
+                  (click)="toggleBorder()">Frame Options</h4></div>
+                <div class="panel-body" [hidden]="!showBorder">
+                  <label for="addBorder"><input type="checkbox" id="addBorder"
+                                                [(ngModel)]="currentDocument.addBorder">Add Border</label>
+                  <select [(ngModel)]="currentDocument.selectedBorder">
+                      <option *ngFor="let color of brickColors" [value]="color.num">{{color.color}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="brickImageWidth">Width</label>
+              <input type="range" min="10" max="100" id="brickImageWidth"
+                     [(ngModel)]="currentDocument.dimensions.width">
+              <span class="pull-right">{{currentDocument.dimensions.width}}</span>
+            </div>
+            <div class="form-group" [hidden]="keepAspectRatio">
+              <label for="brickImageHeight">Height</label>
+              <input type="range" min="10" max="100" id="brickImageHeight"
+                     [(ngModel)]="currentDocument.dimensions.height" [disabled]="keepAspectRatio">
+              <span class="pull-right">{{currentDocument.dimensions.height}}</span>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" [(ngModel)]="keepAspectRatio" />Keep Aspect Ratio
+              </label>
+            </div>
+            <div class="form-group">
+              <div class="panel panel-default" id="filterColors">
+                <div class="panel-heading"><h4 class="panel-heading linkLabel" (click)="toggleFilterColors()"> Filter Colors
+                </h4></div>
+                <div class="panel-body" id="colorPanel" [hidden]="!showFilterColors">
+                  <label *ngFor="let color of brickColors" ><input
+                    type="checkbox"
+                    id="col{{color.num}}" [(ngModel)]="currentDocument.filterColors[color.num]"/>
+                    <small [ngStyle]="{'color':hexify(color)}">
+                      {{color.color}}
+                    </small>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="text-info">This portrait will be {{ currentDocument.dimensions.height * currentDocument.dimensions.width }} studs</p>
+              <p>It will be {{currentDocument.dimensions.width * .8 | number}} cm x {{ currentDocument.dimensions.height *.8|number}} cm --or--</p>
+              <p>It will be {{currentDocument.dimensions.width * 0.314961 | number}} in x {{ currentDocument.dimensions.height * 0.314961|number}} in</p>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" (click)="bricktify()" id="bricktify"
+                      [disabled]="!aspectRatio.hasBeenUploaded"><i class="fa fa-cog"></i> Bricktify!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <bricktified-image [context]="'brck'"></bricktified-image>
+      </div>
+    </div>
+  </div>
+</div>
