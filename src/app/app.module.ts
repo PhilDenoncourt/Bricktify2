@@ -22,6 +22,8 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
 import { BrickifyPanelComponent } from './brickify-panel/brickify-panel.component';
 import { BricktifiedImageComponent } from './bricktified-image/bricktified-image.component';
 import { PartsListComponent } from './parts-list/parts-list.component';
+import { StepsListComponent } from './steps-list/steps-list.component';
+import { DetailedBrickImageComponent } from './detailed-brick-image/detailed-brick-image.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { PartsListComponent } from './parts-list/parts-list.component';
     UploadImageComponent,
     BrickifyPanelComponent,
     BricktifiedImageComponent,
-    PartsListComponent
+    PartsListComponent,
+    StepsListComponent,
+    DetailedBrickImageComponent
   ],
   imports: [
     BrowserModule,

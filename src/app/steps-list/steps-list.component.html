@@ -1,0 +1,32 @@
+<div heading="Steps to Build" class=".hidden-print" id="stepToBuild">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>Steps to build</h4>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-12 text-center" [hidden]="!currentDocument.brickList">
+          <div class="buildPanel">
+            <div class="buildView">
+              <detailed-brick-image [step]="stepNum"></detailed-brick-image>
+            </div>
+            <div class="buildNav">
+              <div>
+                <span class="glyphicon glyphicon-chevron-left" (click)="previousStep()"></span>
+                <span class="glyphicon glyphicon-chevron-right" (click)="nextStep()"></span>
+              </div>
+              <div class="buildStepList">
+                <div *ngFor="let step of abbreviatedSteps; let $index=index;" >
+                  <a (click)="setStep($index+1)" >{{step}}</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="buildStepDescription">
+            <h4>Step {{stepNum}}</h4>
+            <span>{{stepDescription}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
