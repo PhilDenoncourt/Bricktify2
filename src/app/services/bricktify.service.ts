@@ -20,6 +20,7 @@ export class BricktifyService {
   private lastPictureMap:number[][];
 
   private brickifyFinishedSource = new Subject<any>();
+  private suggestBricktifySource = new Subject<any>();
 
   constructor(public canvasContext:CanvasContextService,public bricksService:BricksService,public brickOptions:BrickOptionsService) { }
 
@@ -64,7 +65,11 @@ export class BricktifyService {
         this.brickifyFinishedSource.next();
       };
 
+      public suggestBricktify() {
+        this.suggestBricktifySource.next({});
+      }
   public brickifyFinished$ = this.brickifyFinishedSource.asObservable();
+  public suggestBricktify$ = this.suggestBricktifySource.asObservable();
 
   private static scaleInput(sourceRawContext, width, height) {
         let sourceCanvas = <HTMLCanvasElement>$('<canvas class="removeMe"></canvas>')[0];

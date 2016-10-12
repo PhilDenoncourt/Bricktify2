@@ -4,6 +4,7 @@ import { CanvasContextService } from '../services/canvas-context.service';
 import { AspectRatioService } from '../services/aspect-ratio.service';
 
 import * as _ from "lodash";
+import {BricktifyService} from "../services/bricktify.service";
 declare var $:JQueryStatic;
 
 @Component({
@@ -13,7 +14,7 @@ declare var $:JQueryStatic;
 })
 export class UploadImageComponent implements OnInit {
 
-  constructor(public element:ElementRef, public canvasContext: CanvasContextService, public zone:NgZone, public aspectRatio:AspectRatioService) { }
+  constructor(public element:ElementRef, public canvasContext: CanvasContextService, public zone:NgZone, public aspectRatio:AspectRatioService, public bricktifyService:BricktifyService) { }
 
   ngOnInit() {
     this.domCanvas = <HTMLCanvasElement>$('canvas',this.element.nativeElement)[0]; //TODO Refactor this reference
@@ -63,6 +64,7 @@ export class UploadImageComponent implements OnInit {
         };
         this.imageDataUrl = readerEvent.target.result;
         img.src=this.imageDataUrl;
+        this.bricktifyService.suggestBricktify();
       };
       reader.readAsDataURL(e.target.files[0]);
     });
@@ -99,7 +101,7 @@ export class UploadImageComponent implements OnInit {
     this.ctx.restore();
 
     this.aspectRatio.getCurrentAspectRatio().setRatio(this.domCanvas.height/this.domCanvas.width);
-
+    this.bricktifyService.suggestBricktify();
   };
 
 }

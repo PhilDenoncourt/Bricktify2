@@ -29,6 +29,10 @@ export class BrickifyPanelComponent implements OnInit {
     this.aspectRatio = this.aspectRatioService.getCurrentAspectRatio();
 
     this.keepAspectRatio = true;
+
+    this.bricktifyService.suggestBricktify$.subscribe(()=> {
+      this.bricktify();
+    })
   }
 
   toggleBorder() {
@@ -38,7 +42,12 @@ export class BrickifyPanelComponent implements OnInit {
   toggleFilterColors() {
     this.showFilterColors = !this.showFilterColors;
   }
-
+  widthChanged() {
+    if (this.keepAspectRatio) {
+      this.currentDocument.dimensions.height = Math.floor(this.currentDocument.dimensions.width * this.aspectRatio.ratio);
+    }
+    this.bricktify();
+  }
   bricktify() {
     var borderColor = null;
     if (this.currentDocument.addBorder) {
@@ -54,8 +63,6 @@ export class BrickifyPanelComponent implements OnInit {
     });
 
     this.bricktifyService.bricktify('source', 'brck', validColors, borderColor, this.currentDocument.dimensions.width, this.currentDocument.dimensions.height);
-
-    //this._rootScope.$broadcast('bricktified');
   }
 
   hexify(color:IColor) {
