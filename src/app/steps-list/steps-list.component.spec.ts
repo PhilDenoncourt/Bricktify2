@@ -2,10 +2,5 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { StepsListComponent } from './steps-list.component';
+import {BricktifyService} from '../services/bricktify.service';
 
-describe('Component: StepsList', () => {
-  it('should create an instance', () => {
-    let component = new StepsListComponent();
-    expect(component).toBeTruthy();
-  });
-});

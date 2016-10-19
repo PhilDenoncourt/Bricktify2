@@ -5,7 +5,7 @@ import { BrickifyPanelComponent } from './brickify-panel.component';
 
 describe('Component: BrickifyPanel', () => {
   it('should create an instance', () => {
-    let component = new BrickifyPanelComponent();
+    let component = new BrickifyPanelComponent(null,null,null,null);
     expect(component).toBeTruthy();
   });
 });
